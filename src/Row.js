@@ -3,6 +3,15 @@ import axios from './axios'
 import "./row.css"
 import Youtube from "react-youtube"
 import movieTrailer from "movie-trailer"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore,{Navigation, Pagination} from 'swiper';
+import requests from './requests'
+import 'swiper/swiper-bundle.css'
+
+
+SwiperCore.use([Navigation, Pagination ])
+
+
 
 const base_url= "https://image.tmdb.org/t/p/original"
 function Row({title, fetchUrl, isLargeRow}) {
@@ -18,6 +27,7 @@ function Row({title, fetchUrl, isLargeRow}) {
         fetchData()
        
     }, [fetchUrl])
+
 
 
       // Options for react-youtube
@@ -39,10 +49,68 @@ function Row({title, fetchUrl, isLargeRow}) {
       setTrailerUrl(trailerurl.data.results[0]?.key);
     }
   };
+      
+//  const  slides =()=>{
+//    return []
+//  }
 
+const sacdeli = [
+
+]
+     const slides = []
+      
+        
+ 
+        //  movies.map(movie =>(
+        //    <SwiperSlide>
+        //     <img 
+        //     onClick={()=>handleClick(movie)}
+        //     key={movie.id}
+        //     className={`row_poster ${isLargeRow && "row_posterLarge"}`}
+        //     src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
+        //     alt={movie.name} />
+        //     </SwiperSlide>
+        // )) 
     
+  
+     
+
+    //  for( let i = 0; i <5; i +=1){
+    //    sacdeli.push(
+    //      <SwiperSlide key={i}>
+    //     <img  src="https://static.hollywoodreporter.com/sites/default/files/2012/12/img_logo_blue.jpg"/>
+    //      </SwiperSlide>
+    //    )
+    //  }
+        
+    movies.map((movie) =>(
+       sacdeli.push
+            (<SwiperSlide key={movie.id}>
+              <h2>{title}</h2>
+              <div className="row_posters"> 
+             <img 
+              onClick={()=>handleClick(movie)}
+               key={movie.id}
+              className={`row_poster ${isLargeRow && "row_posterLarge"}`}
+              src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
+              alt={movie.name} />
+             </div>
+              </SwiperSlide>)
+         )) 
+     
+
+    for (let i = 0; i <= sacdeli.length; i +=1){
+      slides.push(sacdeli[i])
+    }
      console.log(movies)
+     console.log("es")
+
+     
+      console.log(requests.search + "woman")
+   
+     
     return (
+      
         <div className="row">
             <h2>{title}</h2>
             <div className="row_posters">
@@ -57,6 +125,15 @@ function Row({title, fetchUrl, isLargeRow}) {
             </div>
           {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
         </div>
+
+      // <React.Fragment>
+      //   <Swiper  navigation pagination  >
+          
+      //     {slides}
+      //   </Swiper>
+      // </React.Fragment>
+        
+         
     )
 }
 
