@@ -1,33 +1,66 @@
 .row {
     margin-left: 20px;
     color: #fff;
+  
   }
    
   .row_poster {
-    object-fit: contain;
+    /* object-fit: contain;
     width: 100%;
-    max-height: 100px;
+    height: 200px;
     transition: transform 450ms;
     margin-right: 10px;
+    cursor: pointer;
+    
+    border-radius: 5px; */
+    height: 200px;
+    cursor: pointer;
+    transition: transform 450ms;
+    border-radius: 5px;
+    
+  } 
+  .movie-container{
+   
   }
-  
   .row_posters {
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
     padding: 20px;
+    
+    height: 230px;
+    
   }
-   
-  
-  
+
+
+.test{
+  transition: transform 450ms;
+
+ width: 300px;
+ object-fit: contain;
+ width: 100%;
+ height: 250px;
+ 
+ margin-right: 10px;
+ cursor: pointer;
+}
+  .test p{
+    
+    z-index: 300;
+  }
   .row_poster:hover {
     transform: scale(1.08);
   }
+ 
   
   .row_posterLarge {
-    max-height: 250px;
+  height: 350px;
   }
   
   .row_posterLarge:hover {
     transform: scale(1.09);
+  }
+
+  .netflix-original{
+    height: 400px;
   }
